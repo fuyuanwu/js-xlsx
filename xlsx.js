@@ -11498,6 +11498,7 @@ function safe_format_cell(cell, v) {
 
 function format_cell(cell, v) {
 	if(cell == null || cell.t == null) return "";
+	if(cell.t === 's') return cell.r.replace(/<(\S+)>(\S*)<\/(.+)/, '$2');
 	if(cell.w !== undefined) return cell.w;
 	if(v === undefined) return safe_format_cell(cell, cell.v);
 	return safe_format_cell(cell, v);
